@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Maze</title>
+      <link href = "style.css" rel = "stylesheet" type = "text/css"/>
+      <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <form class = "heading" action = "index.html" method = "post">
+
+      <div class = "inputs">
+        <label for = "width">Width:</label>
+        <input type = "text" class = "input" id = "width" name = "width">
+
+        <label for = "height">Height:</label>
+        <input type = "text" class = "input" id = "height" name = "height">
+      </div>
+
+      <div class = "buttons">
+        <button type = "button" class = "button" id = "new-maze">New Maze</button>
+        <button type = "button" class = "button" id = "solve">Solve</button>
+        <button type = "button" class = "button" id = "restart">Reset</button>
+      </div>
+
+      <div id = "error-message">
+        Please input acceptable dimensions.
+      </div>
+
+    </form>
+
+    <div class= "maze-board">
+      <canvas id = "board" width="900" height="900"></canvas>
+    </div>
+
+    <script src = "app.js" charset = "utf-8"></script>
+  </body>
+</html>

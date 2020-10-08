@@ -1,0 +1,66 @@
+Recursive backtracking:
+
+Choose a starting point in the field.
+Randomly choose a wall at that point and carve a passage through to the adjacent cell, but only if the adjacent cell has not been visited yet. This becomes the new current cell.
+If all adjacent cells have been visited, back up to the last cell that has uncarved walls and repeat.
+The algorithm ends when the process has backed all the way up to the starting point.
+
+
+Recursive depth first search:
+
+public void traverse() {
+  traverseHelper(1st vertex, emptySet);
+}
+
+private void traverseHelper(vertex x, set visitedSet) {
+  visit x
+  add x to visitedSet
+  for each successor y of x
+    if y not in visitedSet
+      traverseHelper(y, viistedSet)
+}
+
+
+My explanation:
+
+choose starting cell
+
+while (stack not empty)
+  Push current cell onto Stack
+
+  while (current cell has unvisited neighbors)
+    Change dot colors
+    Visit a randomly chosen neighbor of current cell if not visited yet
+
+  Once current cell has only visited neighbors
+    Pop current cell off visited
+
+  Next cell becomes current cell
+
+
+
+Implementation with stack:
+
+A common way to implement this is through the use of a stack (First In Last Out).
+
+As we visit each square for the first time, we push this location onto a stack which keeps track of the order we've visited them (a stack is like a stack of plates; it's a list but with strict rules about how we can access them)
+
+We keep adding plates to the top (pushing the current location onto the stack) for every forward move we make until we can't make any more moves. When we get stuck, we pop off the top item from the stack (the last visited square)
+
+Carry on from there. If the previous location popped off the stack is also blocked, we pop off the next item from the stack (the previous, previous visited location), and so on …
+
+The stack dynamically changes in length as the algorithm progresses. Once we visit a cell, it will hold a value indicating that it has been processed. The cell will also contain references to the cells around it.
+
+
+
+Visually:
+
+We are going to have dots in each box to show the current progress of the maze during the creation. Red will represent the current cell being processed, with black being visited boxes. User will have a line that shows where they have been and will get erased when they backtrack (line as thick as box). Snap to the dot?
+
+
+Things to fix later:
+When it's not a square -> figure out bounds DONE
+Add start at top left and end at bottom right DONE
+fix connections!! DONE
+count moves? DONE
+Congrats text DONE

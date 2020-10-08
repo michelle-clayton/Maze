@@ -1,0 +1,52 @@
+* {
+  font-family: 'Staatliches', cursive;
+}
+
+.heading {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 35px;
+  text-align: center;
+}
+
+.heading .buttons {
+  margin-left: 30px;
+}
+
+.button {
+  background-color: rgba(128, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.button:hover {
+  background-color: rgba(128, 0, 0, 0.7);
+  cursor: pointer;
+  transition-duration: .3s;
+}
+
+.input {
+  border-radius: 4px;
+  height: 25px;
+}
+
+#error-message {
+  color: maroon;
+  margin-left: 30px;
+  visibility: hidden;
+}
+
+#board {
+  align-items: center;
+  margin-top: 10px;
+}
+
+.red-glow {
+	text-shadow: 0 0 10px rgba(256, 0, 0, 0.7);
+}
+
+.remove-glow {
+  text-shadow: none;
+  transition: all 1s linear;
+}

@@ -221,7 +221,7 @@ function drawPathLine(color, from, to) {
   if (color == 'white') {
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.fillRect(from.getCoord().getX() - dotRadius*2, from.getCoord().getY() - dotRadius * 2, boxSize/2, boxSize/2 );
+    ctx.fillRect(from.getCoord().getX() - dotRadius*2, from.getCoord().getY() - dotRadius * 2, boxSize/2, boxSize/2);
     ctx.closePath();
   }
 
@@ -243,6 +243,7 @@ function drawMaze(width, height){
     visited.peek().color = "red";
     visited.peek().drawThis();
 
+
     // randomly choose neighbor to visit
     while(!curCell.visitedNeighbors()) {
       // place current dot
@@ -261,6 +262,7 @@ function drawMaze(width, height){
       drawMazeLine(curCell.getCoord(), nextCell.getCoord());
       curCell.color = "black";
       nextCell.color = "red";
+
       curCell.drawThis();
       nextCell.drawThis();
 

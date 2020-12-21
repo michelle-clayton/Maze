@@ -505,17 +505,20 @@ function main() {
     keydown(event);
   });
 
-  newMazeButton.addEventListener('click', () => {
+  newMazeButton.addEventListener('mousedown', () => {
     newMaze();
+    newMazeButton.style.outline = 'none';
   });
 
-  solveButton.addEventListener('click', () => {
+  solveButton.addEventListener('mousedown', () => {
     console.log('solve');
     findSoln();
+    solveButton.style.outline = 'none';
   });
 
-  restartButton.addEventListener('click', () => {
+  restartButton.addEventListener('mousedown', () => {
     resetUser();
+    restartButton.style.outline = 'none';
   });
 }
 

@@ -1,0 +1,17 @@
+* {
+  font-family: 'Staatliches', cursive;
+}
+
+.button {
+  background-color: rgba(128, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: 25px;
+  margin: 10px 0px 20px 0px;
+  width: 300px;
+}
+
+.button:hover {
+  background-color: rgba(128, 0, 0, 0.7);
+  cursor: pointer;
+  transition-duration: .3s;
+}

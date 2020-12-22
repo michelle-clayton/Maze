@@ -2,37 +2,44 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Maze</title>
-      <link href = "style.css" rel = "stylesheet" type = "text/css"/>
-      <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <title>My Maze Game</title>
+    <link href = "style.css" rel = "stylesheet" type = "text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
   </head>
   <body>
 
-    <form class = "heading" action = "index.html" method = "post">
-
-      <div class = "inputs">
-        <label for = "width">Width:</label>
-        <input type = "text" class = "input" id = "width" name = "width">
-
-        <label for = "height">Height:</label>
-        <input type = "text" class = "input" id = "height" name = "height">
-      </div>
+    <span><div class="column" id = "left">
+      <header>
+        My Maze Game!
+      </header>
 
       <div class = "buttons">
-        <button type = "button" class = "button" id = "new-maze">New Maze</button>
-        <button type = "button" class = "button" id = "solve">Solve</button>
-        <button type = "button" class = "button" id = "restart">Reset</button>
+        <button type = "button" class = "button" id = "new-maze">New Maze</button><br>
+        <button type = "button" class = "button" id = "solve">Solve</button> <br>
+        <button type = "button" class = "button" id = "restart">Reset</button><br>
+        <button type = "button" class = "button" id = "instructions">Instructions</button>
       </div>
+
+      <form class = "heading" method = "post">
+        <div class = "inputs">
+          <label for = "width" id = "width-label">Width: </label>
+          <input type = "text" class = "input" id = "width" name = "width"><br>
+
+          <label for = "height" id = "height-label">Height:</label>
+          <input type = "text" class = "input" id = "height" name = "height">
+        </div>
+      </form>
 
       <div id = "error-message">
         Please input acceptable dimensions.
       </div>
-
-    </form>
-
-    <div class= "maze-board">
-      <canvas id = "board" width="900" height="900"></canvas>
     </div>
+
+    <div class="column" id = "right">
+      <div class= "maze-board">
+        <canvas id = "board" width="900" height="900"></canvas>
+      </div>
+    </div></span>
 
     <script src = "app.js" charset = "utf-8"></script>
   </body>

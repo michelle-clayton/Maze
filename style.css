@@ -2,11 +2,16 @@
   font-family: 'Staatliches', cursive;
 }
 
+header {
+  font-size: 40px;
+}
+
 .heading {
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex-flow: row wrap;
   font-size: 35px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -14,10 +19,16 @@
   margin-left: 30px;
 }
 
+.column {
+  display: inline-block;
+}
+
 .button {
   background-color: rgba(128, 0, 0, 0.2);
   border-radius: 10px;
   font-size: 25px;
+  margin: 10px 0px 20px 0px;
+  width: 300px;
 }
 
 .button:hover {
@@ -28,12 +39,31 @@
 
 .input {
   border-radius: 4px;
-  height: 25px;
+  font-size: 25px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#width {
+  margin-left: 8px;
+}
+
+#left {
+  width: 20%;
+  margin-right: 30px;
+  text-align: center;
+  vertical-align: top;
+}
+
+#right {
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 #error-message {
   color: maroon;
-  margin-left: 30px;
+  display: inline;
+  font-size: 35px;
   visibility: hidden;
 }
 

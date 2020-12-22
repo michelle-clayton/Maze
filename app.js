@@ -2,6 +2,7 @@
 var newMazeButton = document.getElementById('new-maze');
 var solveButton = document.getElementById('solve');
 var restartButton = document.getElementById('restart');
+var instructButton = document.getElementById('instructions');
 
 // other document elements
 var errorMessage = document.getElementById('error-message');
@@ -47,12 +48,9 @@ main();
 // draws the solution
 function drawSoln() {
   resetUser();
-  for (var i = 0; i < solnSet.length - 1; i++) {
+  for (var i = 0; i < solnSet.length - 1; i++)
     drawPathLine(lineColor, solnSet[i], solnSet[i+1]);
-    addUserBox(solnSet[i]);
-  }
 
-  addUserBox(cellMap.get(coords[coords.length - 1]));
 }
 
 // finds the solution to the maze
@@ -101,11 +99,11 @@ function findSolnHelper(cell) {
   return false;
 }
 
-// draws box at beginning of maze
+// draws box at beginning of maze (GOT RID OF THIS METHOD)
 function addUserBox(cell) {
   ctx.beginPath();
   ctx.fillStyle = lineColor;
-  ctx.fillRect(cell.getCoord().getX() - dotRadius*2, cell.getCoord().getY() - dotRadius * 2, boxSize/2, boxSize/2);
+  ctx.fillRect(cell.getCoord().getX() - dotRadius*4, cell.getCoord().getY() - dotRadius * 4, boxSize/4, boxSize/4);
   ctx.closePath();
 
   cell.drawThis();
@@ -122,7 +120,6 @@ function resetUser() {
   }
   user = new User();
   user.path.push(cellMap.get(coords[0]));
-  addUserBox(cellMap.get(coords[0]));
 }
 
 // response to user keyboard move
@@ -138,7 +135,6 @@ function userMove() {
       } else {
         drawPathLine(lineColor, user.curPosition(), temp);
         user.path.push(temp);
-        addUserBox(temp);
       }
       countMoves++;
     }
@@ -154,7 +150,6 @@ function userMove() {
       } else {
         drawPathLine(lineColor, user.curPosition(), temp);
         user.path.push(temp);
-        addUserBox(temp);
       }
       countMoves++;
     }
@@ -170,7 +165,6 @@ function userMove() {
       } else {
         drawPathLine(lineColor, user.curPosition(), temp);
         user.path.push(temp);
-        addUserBox(temp);
       }
       countMoves++;
     }
@@ -186,7 +180,6 @@ function userMove() {
       } else {
         drawPathLine(lineColor, user.curPosition(), temp);
         user.path.push(temp);
-        addUserBox(temp);
       }
       countMoves++;
     }
@@ -208,21 +201,29 @@ function drawPathLine(color, from, to) {
     ctx.moveTo(from.getCoord().getX(), from.getCoord().getY());
     ctx.lineTo(to.getCoord().getX(), to.getCoord().getY());
 
+    ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.stroke();
+
+    if (user.path.length > 2) {
+      ctx.beginPath();
+      ctx.lineWidth = boxSize/4 - 1;
+      ctx.moveTo(user.path[user.path.length - 2].getCoord().getX(), user.path[user.path.length - 2].getCoord().getY());
+      ctx.lineTo(user.path[user.path.length - 3].getCoord().getX(), user.path[user.path.length - 3].getCoord().getY());
+      ctx.closePath();
+      ctx.strokeStyle = lineColor;
+      ctx.stroke();
+
+      user.path[user.path.length - 3].drawThis();
+      user.path[user.path.length - 2].drawThis();
+    }
   } else {
-    ctx.lineWidth = boxSize/2;
+    ctx.lineWidth = boxSize/4 - 1;
     ctx.moveTo(from.getCoord().getX(), from.getCoord().getY());
     ctx.lineTo(to.getCoord().getX(), to.getCoord().getY());
-  }
-
-  ctx.closePath();
-  ctx.strokeStyle = color;
-  ctx.stroke();
-
-  if (color == 'white') {
-    ctx.beginPath();
-    ctx.fillStyle = "white";
-    ctx.fillRect(from.getCoord().getX() - dotRadius*2, from.getCoord().getY() - dotRadius * 2, boxSize/2, boxSize/2);
     ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.stroke();
   }
 
   from.drawThis();
@@ -487,8 +488,6 @@ function newMaze() {
     ctx.strokeStyle = "white";
     ctx.stroke();
 
-    addUserBox(cellMap.get(coords[0]));
-
   } else {
 
     errorMessage.style.visibility = "visible";
@@ -519,6 +518,11 @@ function main() {
   restartButton.addEventListener('mousedown', () => {
     resetUser();
     restartButton.style.outline = 'none';
+  });
+
+  instructButton.addEventListener('mousedown', () => {
+    instructButton.style.outline = 'none';
+    window.location.href = 'instructions.html';
   });
 }
 

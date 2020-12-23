@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -9,15 +9,33 @@
   <body>
 
     <div class="head">
-      <button type="button" onclick = "window.location.href = 'maze.html';" name="return">Return to Game</button>
+      <button type="button" class = "button" id = "return" onclick = "window.location.href = 'maze.html';" name="return">Return to Game</button>
       <header>
-        My Maze Game Description
+          <h1>My Maze Game Description</h1>
       </header>
     </div>
 
     <div class="parargraph-one">
-      <h1>CONTROLS</h1>
-      <p>The path you choose is controlled by the arrow keys</p>
+      <h2>CONTROLS</h2>
+      <p>The path you choose is controlled by the arrow keys starting in the top left corner.</p>
+      <p>The goal is to make it to the bottom left as efficiently as possible.</p>
+      <ul>
+        <li>UP ARROW KEY: &ensp; move up one</li>
+        <li>DOWN ARROW KEY: &ensp; move down one</li>
+        <li>LEFT ARROW KEY: &ensp; move left one</li>
+        <li>RIGHT ARROW KEY: &ensp; move right one</li>
+      </ul>
+    </div>
+
+    <div class="parargraph-two">
+      <h2>FEATURES</h2>
+      <ul>
+        <li>Walking over previous steps erases the line!</li>
+        <li>We are counting your moves!</li>
+        <li>Click "New Maze" to get a new maze</li>
+        <li>Click "Restart" to reset progress to beginning</li>
+        <li>Click "Solve" to see the solution</li>
+      </ul>
     </div>
 
   </body>
